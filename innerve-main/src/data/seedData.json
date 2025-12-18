@@ -1,0 +1,1072 @@
+{
+  "appName": "ClearBrief",
+  "demoMode": true,
+  "auth": {
+    "enabled": false,
+    "loginBypass": true,
+    "banner": "Demo mode: authentication bypassed"
+  },
+  "sourceDefaults": {
+    "militaryDefaultConfidence": 0.95,
+    "publicDefaultConfidenceRange": [0.2, 0.6],
+    "reliabilityBySourceType": {
+      "official_gov": 0.8,
+      "major_news": 0.7,
+      "local_news": 0.55,
+      "verified_reporter": 0.5,
+      "known_user": 0.35,
+      "unknown_user": 0.2,
+      "anonymous": 0.1
+    }
+  },
+  "projects": [
+    {
+      "id": "PRJ-001",
+      "name": "Border Shelling Analysis - Sector North",
+      "type": "border_incident",
+      "region": "Sector North AOI",
+      "status": "Active",
+      "createdBy": "Demo Analyst",
+      "createdAt": "2025-12-16T06:40:00Z",
+      "timeWindow": {
+        "start": "2025-12-16T00:00:00Z",
+        "end": "2025-12-18T00:00:00Z"
+      },
+      "tags": ["aoi:north", "incident:border", "mode:investigation"],
+      "ingestionConfig": {
+        "keywords": ["shelling", "loud blasts", "border", "evacuation"],
+        "locationHint": "Sector North",
+        "radiusKm": 15,
+        "sources": { "social": true, "news": true, "alerts": false }
+      },
+      "militaryReports": [
+        {
+          "id": "MIL-PRJ-001-01",
+          "sourceType": "military",
+          "unit": "PATROL-A1",
+          "channel": "patrol_log",
+          "reportedAt": "2025-12-16T03:10:00Z",
+          "location": { "name": "Post Alpha", "lat": 34.22, "lon": 74.35, "grid": "N-14" },
+          "text": "03:10Z. Distant loud sounds heard to NE of Post Alpha. No direct visual confirmation. Routine check completed. No personnel injury reported.",
+          "confidence": 0.92
+        },
+        {
+          "id": "MIL-PRJ-001-02",
+          "sourceType": "military",
+          "unit": "OBS-POINT-7",
+          "channel": "observation_note",
+          "reportedAt": "2025-12-16T03:35:00Z",
+          "location": { "name": "Observation Point 7", "lat": 34.25, "lon": 74.38, "grid": "N-15" },
+          "text": "03:35Z. Two sound events recorded (low intensity). Visibility poor due to haze. No muzzle flash observed.",
+          "confidence": 0.9
+        },
+        {
+          "id": "MIL-PRJ-001-03",
+          "sourceType": "military",
+          "unit": "HQ-NORTH",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-16T05:00:00Z",
+          "location": { "name": "Sector North HQ", "lat": 34.2, "lon": 74.3, "grid": "N-HQ" },
+          "text": "05:00Z. Reports of sound events in AOI. No confirmed impacts. Patrols tasked for daylight verification.",
+          "confidence": 0.95
+        },
+        {
+          "id": "MIL-PRJ-001-04",
+          "sourceType": "military",
+          "unit": "PATROL-B2",
+          "channel": "patrol_log",
+          "reportedAt": "2025-12-16T07:20:00Z",
+          "location": { "name": "Route Bravo", "lat": 34.23, "lon": 74.33, "grid": "N-13" },
+          "text": "07:20Z. No fresh damage found along Route Bravo. Local civilians mention 'noise at night'. No verified impact site located.",
+          "confidence": 0.93
+        },
+        {
+          "id": "MIL-PRJ-001-05",
+          "sourceType": "military",
+          "unit": "ENGINEER-DET-3",
+          "channel": "field_note",
+          "reportedAt": "2025-12-16T10:15:00Z",
+          "location": { "name": "Village Edge 2", "lat": 34.21, "lon": 74.34, "grid": "N-14B" },
+          "text": "10:15Z. Minor debris observed near boundary wall (cause unknown). No crater. Photographs attached in internal system (not included in demo).",
+          "confidence": 0.88
+        },
+        {
+          "id": "MIL-PRJ-001-06",
+          "sourceType": "military",
+          "unit": "HQ-NORTH",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-17T04:55:00Z",
+          "location": { "name": "Sector North HQ", "lat": 34.2, "lon": 74.3, "grid": "N-HQ" },
+          "text": "04:55Z. No confirmed escalation. Continue monitoring. Validate civilian reports for location/time consistency.",
+          "confidence": 0.96
+        }
+      ],
+      "publicItems": [
+        {
+          "id": "PUB-PRJ-001-01",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-16T03:18:00Z",
+          "claimedLocationText": "near Post Alpha",
+          "text": "Hearing loud noises at night, people are scared. Any update?",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-01"
+        },
+        {
+          "id": "PUB-PRJ-001-02",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-16T03:40:00Z",
+          "claimedLocationText": "Sector North",
+          "text": "Two loud sounds, windows shook. Please check on elderly residents.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-02"
+        },
+        {
+          "id": "NEWS-PRJ-001-01",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-16T06:05:00Z",
+          "headline": "Residents report loud sounds overnight in northern sector villages",
+          "text": "Residents in a few villages reported loud sounds overnight. Officials advised calm and stated verification is ongoing.",
+          "rawUrl": "https://example.com/news-001-01"
+        },
+        {
+          "id": "PUB-PRJ-001-03",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-16T08:10:00Z",
+          "claimedLocationText": "30 km away (unclear)",
+          "text": "Big blasts everywhere! This is huge!!",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-03"
+        },
+        {
+          "id": "PUB-PRJ-001-04",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-16T09:12:00Z",
+          "claimedLocationText": "Village Edge 2",
+          "text": "Saw debris near wall this morning. Not sure what happened.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-04"
+        },
+        {
+          "id": "NEWS-PRJ-001-02",
+          "sourceType": "news",
+          "publisherType": "major_news",
+          "postedAt": "2025-12-17T02:30:00Z",
+          "headline": "Authorities say no confirmed impacts; verification continues",
+          "text": "Authorities stated there are no confirmed impacts and verification is underway. Residents urged to avoid spreading unverified claims.",
+          "rawUrl": "https://example.com/news-001-02"
+        },
+        {
+          "id": "PUB-PRJ-001-05",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T03:05:00Z",
+          "claimedLocationText": "Post Alpha",
+          "text": "Same sounds again tonight, but quieter than yesterday.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-05"
+        },
+        {
+          "id": "PUB-PRJ-001-06",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "verified_reporter",
+          "postedAt": "2025-12-17T05:10:00Z",
+          "claimedLocationText": "Sector North AOI",
+          "text": "Multiple residents reported night-time loud sounds; officials say no confirmed impacts. Verification continues.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-06"
+        },
+        {
+          "id": "PUB-PRJ-001-07",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T07:40:00Z",
+          "claimedLocationText": "Observation Point 7 area",
+          "text": "Fog was heavy, couldn’t see anything. Heard two bangs.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-07"
+        },
+        {
+          "id": "PUB-PRJ-001-08",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-17T09:10:00Z",
+          "claimedLocationText": "unknown",
+          "text": "Forward this: confirmed major incident (no details).",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-08"
+        },
+        {
+          "id": "NEWS-PRJ-001-03",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-17T11:00:00Z",
+          "headline": "Officials request public to share verified location/time details",
+          "text": "Officials requested citizens to share precise location/time details for any observations and avoid circulating old or unrelated media.",
+          "rawUrl": "https://example.com/news-001-03"
+        },
+        {
+          "id": "PUB-PRJ-001-09",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-17T12:15:00Z",
+          "claimedLocationText": "Village Edge 2",
+          "text": "No damage in our lane. Hope everyone is safe.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-001-09"
+        }
+      ],
+      "verificationResults": [
+        {
+          "itemId": "PUB-PRJ-001-01",
+          "relevance": 0.78,
+          "sourceReliability": 0.2,
+          "geoConsistency": 0.55,
+          "crossConfirmCount": 2,
+          "finalConfidence": 0.48,
+          "label": "Unverified",
+          "reasons": ["Low reliability account", "Location vague but within AOI keywords", "Partially corroborated by other posts"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-02",
+          "relevance": 0.82,
+          "sourceReliability": 0.35,
+          "geoConsistency": 0.6,
+          "crossConfirmCount": 3,
+          "finalConfidence": 0.58,
+          "label": "Unverified",
+          "reasons": ["Known user but not official", "Matches time window", "Corroborated by multiple independent mentions"]
+        },
+        {
+          "itemId": "NEWS-PRJ-001-01",
+          "relevance": 0.75,
+          "sourceReliability": 0.55,
+          "geoConsistency": 0.7,
+          "crossConfirmCount": 2,
+          "finalConfidence": 0.66,
+          "label": "Verified",
+          "reasons": ["Local news outlet", "Consistent with military time window", "No extraordinary claim"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-03",
+          "relevance": 0.4,
+          "sourceReliability": 0.1,
+          "geoConsistency": 0.2,
+          "crossConfirmCount": 0,
+          "finalConfidence": 0.12,
+          "label": "Suspicious",
+          "reasons": ["Sensational language", "Location inconsistent", "No corroboration"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-04",
+          "relevance": 0.7,
+          "sourceReliability": 0.2,
+          "geoConsistency": 0.65,
+          "crossConfirmCount": 1,
+          "finalConfidence": 0.5,
+          "label": "Unverified",
+          "reasons": ["Vague claim", "Matches AOI location text", "Needs on-ground confirmation"]
+        },
+        {
+          "itemId": "NEWS-PRJ-001-02",
+          "relevance": 0.72,
+          "sourceReliability": 0.7,
+          "geoConsistency": 0.75,
+          "crossConfirmCount": 2,
+          "finalConfidence": 0.78,
+          "label": "Verified",
+          "reasons": ["Major news outlet", "Aligned with official statement style", "Consistent with military SITREP"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-05",
+          "relevance": 0.68,
+          "sourceReliability": 0.2,
+          "geoConsistency": 0.6,
+          "crossConfirmCount": 1,
+          "finalConfidence": 0.42,
+          "label": "Unverified",
+          "reasons": ["Low reliability source", "Claim plausible but needs corroboration"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-06",
+          "relevance": 0.74,
+          "sourceReliability": 0.5,
+          "geoConsistency": 0.7,
+          "crossConfirmCount": 3,
+          "finalConfidence": 0.72,
+          "label": "Verified",
+          "reasons": ["Verified reporter", "Aggregated claim with caution", "Corroborated by news and military timeline"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-07",
+          "relevance": 0.66,
+          "sourceReliability": 0.2,
+          "geoConsistency": 0.65,
+          "crossConfirmCount": 2,
+          "finalConfidence": 0.52,
+          "label": "Unverified",
+          "reasons": ["Vague but consistent with haze/visibility constraints", "Corroborated by OP-7 sound events"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-08",
+          "relevance": 0.3,
+          "sourceReliability": 0.1,
+          "geoConsistency": 0.1,
+          "crossConfirmCount": 0,
+          "finalConfidence": 0.08,
+          "label": "Suspicious",
+          "reasons": ["Forwarded chain message", "No location/time", "No corroboration"]
+        },
+        {
+          "itemId": "NEWS-PRJ-001-03",
+          "relevance": 0.55,
+          "sourceReliability": 0.55,
+          "geoConsistency": 0.65,
+          "crossConfirmCount": 1,
+          "finalConfidence": 0.6,
+          "label": "Verified",
+          "reasons": ["Neutral guidance statement", "Low risk claim", "Aligned with verification posture"]
+        },
+        {
+          "itemId": "PUB-PRJ-001-09",
+          "relevance": 0.52,
+          "sourceReliability": 0.35,
+          "geoConsistency": 0.65,
+          "crossConfirmCount": 1,
+          "finalConfidence": 0.55,
+          "label": "Unverified",
+          "reasons": ["Benign observation", "Useful for damage assessment but not confirmatory"]
+        }
+      ],
+      "entities": [
+        { "id": "ENT-PRJ-001-EVT-01", "type": "event", "name": "Night-time sound events", "timeStart": "2025-12-16T03:10:00Z", "timeEnd": "2025-12-16T03:40:00Z" },
+        { "id": "ENT-PRJ-001-LOC-01", "type": "location", "name": "Post Alpha", "lat": 34.22, "lon": 74.35 },
+        { "id": "ENT-PRJ-001-LOC-02", "type": "location", "name": "Observation Point 7", "lat": 34.25, "lon": 74.38 },
+        { "id": "ENT-PRJ-001-LOC-03", "type": "location", "name": "Village Edge 2", "lat": 34.21, "lon": 74.34 },
+        { "id": "ENT-PRJ-001-UNIT-01", "type": "unit", "name": "PATROL-A1" },
+        { "id": "ENT-PRJ-001-UNIT-02", "type": "unit", "name": "OBS-POINT-7" },
+        { "id": "ENT-PRJ-001-UNIT-03", "type": "unit", "name": "HQ-NORTH" }
+      ],
+      "relations": [
+        { "id": "REL-PRJ-001-01", "type": "occurred_at", "from": "ENT-PRJ-001-EVT-01", "to": "ENT-PRJ-001-LOC-01", "evidence": ["MIL-PRJ-001-01", "PUB-PRJ-001-01"], "confidence": 0.7 },
+        { "id": "REL-PRJ-001-02", "type": "related_to", "from": "ENT-PRJ-001-EVT-01", "to": "ENT-PRJ-001-LOC-02", "evidence": ["MIL-PRJ-001-02", "PUB-PRJ-001-07"], "confidence": 0.68 },
+        { "id": "REL-PRJ-001-03", "type": "reported_by", "from": "MIL-PRJ-001-03", "to": "ENT-PRJ-001-UNIT-03", "confidence": 0.95 },
+        { "id": "REL-PRJ-001-04", "type": "affects", "from": "ENT-PRJ-001-EVT-01", "to": "ENT-PRJ-001-LOC-03", "evidence": ["MIL-PRJ-001-05", "PUB-PRJ-001-04"], "confidence": 0.55 },
+        {
+          "id": "REL-PRJ-001-05",
+          "type": "conflicts_with",
+          "from": "PUB-PRJ-001-03",
+          "to": "MIL-PRJ-001-03",
+          "evidence": ["PUB-PRJ-001-03", "MIL-PRJ-001-03"],
+          "confidence": 0.2,
+          "notes": "Public post claims major widespread incident; military SITREP indicates no confirmed impacts."
+        }
+      ],
+      "conflicts": [
+        {
+          "id": "CON-PRJ-001-01",
+          "severity": "amber",
+          "summary": "Unverified public claims of major incident vs military SITREP: no confirmed impacts",
+          "items": ["PUB-PRJ-001-03", "PUB-PRJ-001-08", "MIL-PRJ-001-03"],
+          "status": "Open"
+        },
+        {
+          "id": "CON-PRJ-001-02",
+          "severity": "blue",
+          "summary": "Debris near wall reported; cause unconfirmed (needs ground verification)",
+          "items": ["MIL-PRJ-001-05", "PUB-PRJ-001-04"],
+          "status": "Open"
+        },
+        {
+          "id": "CON-PRJ-001-03",
+          "severity": "blue",
+          "summary": "Exact direction/source of sound events unclear due to haze/visibility constraints",
+          "items": ["MIL-PRJ-001-02", "PUB-PRJ-001-07"],
+          "status": "Open"
+        }
+      ],
+      "spotrepVersions": [
+        {
+          "id": "SPOTREP-PRJ-001-V1",
+          "generatedAt": "2025-12-16T05:20:00Z",
+          "timeWindow": "2025-12-16T00:00Z to 2025-12-16T05:20Z",
+          "sections": {
+            "SITUATION": "Night-time sound events reported in Sector North AOI. No known injuries. No confirmed impacts at time of report.",
+            "LOCATION": "AOI: Post Alpha / Observation Point 7 vicinity",
+            "TIME_WINDOW": "00:00Z-05:20Z",
+            "FRIENDLY_FORCES": "PATROL-A1, OBS-POINT-7, HQ-NORTH",
+            "OBSERVED_ACTIVITY": "Two sound events recorded; visibility poor. Verification ongoing.",
+            "CIVILIAN_SIGNALS": "Multiple civilian posts reporting loud sounds (unverified). Local news reports verification ongoing (verified).",
+            "CONFLICTS_UNCERTAINTIES": "Some public claims are sensational and not corroborated. Exact origin/direction unclear due to haze.",
+            "CONFIDENCE_SUMMARY": "Overall confidence: Medium. Military: High; Public: Mixed.",
+            "SOURCES": ["MIL-PRJ-001-01", "MIL-PRJ-001-02", "MIL-PRJ-001-03", "NEWS-PRJ-001-01", "PUB-PRJ-001-01", "PUB-PRJ-001-02"]
+          }
+        },
+        {
+          "id": "SPOTREP-PRJ-001-V2",
+          "generatedAt": "2025-12-16T11:05:00Z",
+          "timeWindow": "2025-12-16T05:20Z to 2025-12-16T11:05Z",
+          "sections": {
+            "SITUATION": "Daylight patrol indicates no fresh damage along Route Bravo. Minor debris noted near boundary wall; cause unconfirmed.",
+            "LOCATION": "Route Bravo, Village Edge 2",
+            "TIME_WINDOW": "05:20Z-11:05Z",
+            "FRIENDLY_FORCES": "PATROL-B2, ENGINEER-DET-3",
+            "OBSERVED_ACTIVITY": "Ground check ongoing; photographs in internal system (not included in demo).",
+            "CIVILIAN_SIGNALS": "Posts mention debris and night sounds (unverified).",
+            "CONFLICTS_UNCERTAINTIES": "Debris source unconfirmed. Public claims of major incident remain unverified.",
+            "CONFIDENCE_SUMMARY": "Overall confidence: Medium-High for patrol findings; Low for sensational public claims.",
+            "SOURCES": ["MIL-PRJ-001-04", "MIL-PRJ-001-05", "PUB-PRJ-001-04", "PUB-PRJ-001-03"]
+          }
+        },
+        {
+          "id": "SPOTREP-PRJ-001-V3",
+          "generatedAt": "2025-12-17T05:20:00Z",
+          "timeWindow": "2025-12-16T11:05Z to 2025-12-17T05:20Z",
+          "sections": {
+            "SITUATION": "No confirmed escalation. Continue monitoring and validate civilian reports for location/time consistency.",
+            "LOCATION": "Sector North AOI",
+            "TIME_WINDOW": "11:05Z-05:20Z",
+            "FRIENDLY_FORCES": "HQ-NORTH",
+            "OBSERVED_ACTIVITY": "Monitoring posture maintained.",
+            "CIVILIAN_SIGNALS": "Verified reporter and major news repeat cautious summary (verified). Multiple unverified posts continue.",
+            "CONFLICTS_UNCERTAINTIES": "Unverified forwarded messages persist; treat as suspicious until corroborated.",
+            "CONFIDENCE_SUMMARY": "Overall confidence: Medium. Verified public: Medium-High; unverified: Low.",
+            "SOURCES": ["MIL-PRJ-001-06", "NEWS-PRJ-001-02", "PUB-PRJ-001-06", "PUB-PRJ-001-08"]
+          }
+        }
+      ],
+      "chat": {
+        "suggestedPrompts": [
+          "What changed since the last SPOTREP?",
+          "List unresolved conflicts with sources.",
+          "Summarize verified civilian signals in the last 24 hours.",
+          "Show all events near Post Alpha."
+        ],
+        "qaPairs": [
+          {
+            "q": "What changed since the last SPOTREP?",
+            "a": "New patrol verification found no fresh damage along Route Bravo, and a minor debris observation near Village Edge 2 was added (unconfirmed cause). See [MIL-PRJ-001-04], [MIL-PRJ-001-05].",
+            "citations": ["MIL-PRJ-001-04", "MIL-PRJ-001-05"]
+          },
+          {
+            "q": "Are there conflicting public reports?",
+            "a": "Yes. Some posts claim a major incident without location/time and are labeled suspicious, which conflicts with military SITREP stating no confirmed impacts. See [PUB-PRJ-001-03], [PUB-PRJ-001-08], [MIL-PRJ-001-03].",
+            "citations": ["PUB-PRJ-001-03", "PUB-PRJ-001-08", "MIL-PRJ-001-03"]
+          }
+        ]
+      },
+      "realtimeQueue": {
+        "enabled": true,
+        "intervalSeconds": 10,
+        "toastTemplate": "2 new public updates ingested",
+        "pendingPublicItems": [
+          {
+            "id": "PUB-PRJ-001-RT-01",
+            "sourceType": "social",
+            "platform": "x",
+            "authorType": "unknown_user",
+            "postedAt": "2025-12-17T13:05:00Z",
+            "claimedLocationText": "Sector North",
+            "text": "Hearing rumors again. Please share only confirmed info.",
+            "media": [],
+            "rawUrl": "https://example.com/pub-001-rt-01"
+          },
+          {
+            "id": "NEWS-PRJ-001-RT-01",
+            "sourceType": "news",
+            "publisherType": "local_news",
+            "postedAt": "2025-12-17T13:20:00Z",
+            "headline": "Officials continue verification; advise against forwarding messages",
+            "text": "Officials reiterated verification is ongoing and urged the public to avoid forwarding unverified messages.",
+            "rawUrl": "https://example.com/news-001-rt-01"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PRJ-002",
+      "name": "Urban Terror Incident - City Zone",
+      "type": "urban_security",
+      "region": "City Zone AOI",
+      "status": "Monitoring",
+      "createdBy": "Demo Analyst",
+      "createdAt": "2025-12-17T08:05:00Z",
+      "timeWindow": {
+        "start": "2025-12-17T06:00:00Z",
+        "end": "2025-12-18T06:00:00Z"
+      },
+      "tags": ["aoi:city", "incident:security", "mode:investigation"],
+      "ingestionConfig": {
+        "keywords": ["crowd", "injured", "ambulance", "evacuation", "help"],
+        "locationHint": "City Zone",
+        "radiusKm": 8,
+        "sources": { "social": true, "news": true, "alerts": true }
+      },
+      "militaryReports": [
+        {
+          "id": "MIL-PRJ-002-01",
+          "sourceType": "military",
+          "unit": "LIAISON-CZ",
+          "channel": "field_note",
+          "reportedAt": "2025-12-17T06:25:00Z",
+          "location": { "name": "City Zone Perimeter", "lat": 18.52, "lon": 73.86, "grid": "CZ-01" },
+          "text": "06:25Z. Received request for situational awareness support from local authorities. No confirmed details; awaiting consolidated briefing.",
+          "confidence": 0.94
+        },
+        {
+          "id": "MIL-PRJ-002-02",
+          "sourceType": "military",
+          "unit": "LIAISON-CZ",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-17T07:10:00Z",
+          "location": { "name": "City Zone AOI", "lat": 18.52, "lon": 73.86, "grid": "CZ-AOI" },
+          "text": "07:10Z. Multiple public reports of incident in City Zone. No confirmation from primary channels yet. Establishing comms for verification.",
+          "confidence": 0.92
+        },
+        {
+          "id": "MIL-PRJ-002-03",
+          "sourceType": "military",
+          "unit": "HQ-URBAN",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-17T08:30:00Z",
+          "location": { "name": "HQ Urban", "lat": 18.53, "lon": 73.85, "grid": "CZ-HQ" },
+          "text": "08:30Z. Prioritize civilian distress signals for geolocation clustering and cross-confirmation. Provide summary only with source trace.",
+          "confidence": 0.96
+        },
+        {
+          "id": "MIL-PRJ-002-04",
+          "sourceType": "military",
+          "unit": "MED-LINK-1",
+          "channel": "field_note",
+          "reportedAt": "2025-12-17T09:05:00Z",
+          "location": { "name": "Triage Point 1", "lat": 18.51, "lon": 73.87, "grid": "CZ-T1" },
+          "text": "09:05Z. Reports of injured civilians arriving at triage point; details incomplete. Coordinating with local medical teams.",
+          "confidence": 0.86
+        },
+        {
+          "id": "MIL-PRJ-002-05",
+          "sourceType": "military",
+          "unit": "LIAISON-CZ",
+          "channel": "field_note",
+          "reportedAt": "2025-12-17T10:40:00Z",
+          "location": { "name": "City Zone AOI", "lat": 18.52, "lon": 73.86, "grid": "CZ-AOI" },
+          "text": "10:40Z. Crowd movement near transit hub reported by local authorities. Avoid speculation; consolidate verified updates only.",
+          "confidence": 0.93
+        },
+        {
+          "id": "MIL-PRJ-002-06",
+          "sourceType": "military",
+          "unit": "HQ-URBAN",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-17T12:00:00Z",
+          "location": { "name": "HQ Urban", "lat": 18.53, "lon": 73.85, "grid": "CZ-HQ" },
+          "text": "12:00Z. Continue monitoring. Produce SPOTREP with confirmed facts, list uncertainties and conflicts separately.",
+          "confidence": 0.97
+        }
+      ],
+      "publicItems": [
+        {
+          "id": "PUB-PRJ-002-01",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T06:40:00Z",
+          "claimedLocationText": "Transit Hub",
+          "text": "People running near the transit hub. Sirens everywhere.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-01"
+        },
+        {
+          "id": "PUB-PRJ-002-02",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-17T06:52:00Z",
+          "claimedLocationText": "near Market Road",
+          "text": "Need medical help, someone is injured. Location: Market Road area.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-02"
+        },
+        {
+          "id": "NEWS-PRJ-002-01",
+          "sourceType": "news",
+          "publisherType": "major_news",
+          "postedAt": "2025-12-17T07:45:00Z",
+          "headline": "Authorities investigating incident; request public to remain calm",
+          "text": "Authorities said they are investigating reports of an incident in the city zone and requested the public to avoid rumors.",
+          "rawUrl": "https://example.com/news-002-01"
+        },
+        {
+          "id": "PUB-PRJ-002-03",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-17T08:05:00Z",
+          "claimedLocationText": "unknown",
+          "text": "Forward this: confirmed multiple events across the city (no sources).",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-03"
+        },
+        {
+          "id": "PUB-PRJ-002-04",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "verified_reporter",
+          "postedAt": "2025-12-17T09:20:00Z",
+          "claimedLocationText": "Transit Hub",
+          "text": "Officials say verification ongoing. Avoid sharing unverified videos. Emergency services active near transit hub.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-04"
+        },
+        {
+          "id": "NEWS-PRJ-002-02",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-17T10:05:00Z",
+          "headline": "Emergency services respond near transit hub; public asked to cooperate",
+          "text": "Emergency services responded near the transit hub. Public asked to keep routes clear for ambulances.",
+          "rawUrl": "https://example.com/news-002-02"
+        },
+        {
+          "id": "PUB-PRJ-002-05",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T10:15:00Z",
+          "claimedLocationText": "Market Road",
+          "text": "Ambulance just passed. Crowd is gathering. Please stay safe.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-05"
+        },
+        {
+          "id": "PUB-PRJ-002-06",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T11:10:00Z",
+          "claimedLocationText": "Transit Hub",
+          "text": "Road blocked near transit hub. Lots of police.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-06"
+        },
+        {
+          "id": "NEWS-PRJ-002-03",
+          "sourceType": "news",
+          "publisherType": "major_news",
+          "postedAt": "2025-12-17T12:20:00Z",
+          "headline": "Officials: share exact location/time for assistance; avoid rumor content",
+          "text": "Officials asked residents to share exact location/time details through official channels for assistance and avoid rumor content.",
+          "rawUrl": "https://example.com/news-002-03"
+        },
+        {
+          "id": "PUB-PRJ-002-07",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-17T12:40:00Z",
+          "claimedLocationText": "near Transit Hub",
+          "text": "People are okay here now. Please don’t spread panic.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-07"
+        },
+        {
+          "id": "PUB-PRJ-002-08",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-17T13:05:00Z",
+          "claimedLocationText": "unknown",
+          "text": "Old clip being shared again (no date).",
+          "media": [],
+          "rawUrl": "https://example.com/pub-002-08"
+        },
+        {
+          "id": "NEWS-PRJ-002-04",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-17T13:30:00Z",
+          "headline": "Transit hub partially reopened; services normalizing",
+          "text": "Authorities said the transit hub is partially reopened and services are normalizing. Verification continues.",
+          "rawUrl": "https://example.com/news-002-04"
+        }
+      ],
+      "verificationResults": [
+        { "itemId": "PUB-PRJ-002-01", "relevance": 0.84, "sourceReliability": 0.2, "geoConsistency": 0.7, "crossConfirmCount": 3, "finalConfidence": 0.6, "label": "Unverified", "reasons": ["Consistent location cluster", "Low-reliability account", "Corroborated by others"] },
+        { "itemId": "PUB-PRJ-002-02", "relevance": 0.88, "sourceReliability": 0.35, "geoConsistency": 0.65, "crossConfirmCount": 2, "finalConfidence": 0.64, "label": "Verified", "reasons": ["Specific assistance request", "Consistent time window", "Matches medical triage context"] },
+        { "itemId": "NEWS-PRJ-002-01", "relevance": 0.72, "sourceReliability": 0.7, "geoConsistency": 0.7, "crossConfirmCount": 2, "finalConfidence": 0.78, "label": "Verified", "reasons": ["Major news", "Low-risk official tone", "Aligned with liaison SITREP posture"] },
+        { "itemId": "PUB-PRJ-002-03", "relevance": 0.35, "sourceReliability": 0.1, "geoConsistency": 0.1, "crossConfirmCount": 0, "finalConfidence": 0.08, "label": "Suspicious", "reasons": ["Forwarded rumor", "No specifics", "No corroboration"] },
+        { "itemId": "PUB-PRJ-002-04", "relevance": 0.75, "sourceReliability": 0.5, "geoConsistency": 0.75, "crossConfirmCount": 3, "finalConfidence": 0.76, "label": "Verified", "reasons": ["Verified reporter", "Cautious framing", "Corroborated by local news"] },
+        { "itemId": "NEWS-PRJ-002-02", "relevance": 0.78, "sourceReliability": 0.55, "geoConsistency": 0.75, "crossConfirmCount": 2, "finalConfidence": 0.74, "label": "Verified", "reasons": ["Local news", "Operationally useful guidance", "Consistent with crowd movement notes"] },
+        { "itemId": "PUB-PRJ-002-05", "relevance": 0.7, "sourceReliability": 0.2, "geoConsistency": 0.6, "crossConfirmCount": 2, "finalConfidence": 0.52, "label": "Unverified", "reasons": ["Generic observation", "Corroborated partially", "Needs official confirmation"] },
+        { "itemId": "PUB-PRJ-002-06", "relevance": 0.73, "sourceReliability": 0.2, "geoConsistency": 0.75, "crossConfirmCount": 3, "finalConfidence": 0.6, "label": "Unverified", "reasons": ["Consistent location cluster", "Low-reliability account", "Corroborated by multiple posts"] },
+        { "itemId": "NEWS-PRJ-002-03", "relevance": 0.55, "sourceReliability": 0.7, "geoConsistency": 0.65, "crossConfirmCount": 1, "finalConfidence": 0.68, "label": "Verified", "reasons": ["Major news guidance", "Supports official-channel posture"] },
+        { "itemId": "PUB-PRJ-002-07", "relevance": 0.5, "sourceReliability": 0.35, "geoConsistency": 0.7, "crossConfirmCount": 1, "finalConfidence": 0.55, "label": "Unverified", "reasons": ["Benign update", "Useful for normalization but not confirmatory"] },
+        { "itemId": "PUB-PRJ-002-08", "relevance": 0.25, "sourceReliability": 0.1, "geoConsistency": 0.1, "crossConfirmCount": 0, "finalConfidence": 0.06, "label": "Suspicious", "reasons": ["No date", "Likely recycled content", "No corroboration"] },
+        { "itemId": "NEWS-PRJ-002-04", "relevance": 0.62, "sourceReliability": 0.55, "geoConsistency": 0.7, "crossConfirmCount": 1, "finalConfidence": 0.66, "label": "Verified", "reasons": ["Local news", "Operationally relevant status update"] }
+      ],
+      "entities": [
+        { "id": "ENT-PRJ-002-EVT-01", "type": "event", "name": "Public distress cluster", "timeStart": "2025-12-17T06:40:00Z", "timeEnd": "2025-12-17T10:15:00Z" },
+        { "id": "ENT-PRJ-002-LOC-01", "type": "location", "name": "Transit Hub" },
+        { "id": "ENT-PRJ-002-LOC-02", "type": "location", "name": "Market Road" },
+        { "id": "ENT-PRJ-002-UNIT-01", "type": "unit", "name": "LIAISON-CZ" },
+        { "id": "ENT-PRJ-002-UNIT-02", "type": "unit", "name": "MED-LINK-1" }
+      ],
+      "relations": [
+        { "id": "REL-PRJ-002-01", "type": "occurred_at", "from": "ENT-PRJ-002-EVT-01", "to": "ENT-PRJ-002-LOC-01", "evidence": ["PUB-PRJ-002-01", "PUB-PRJ-002-06", "NEWS-PRJ-002-02"], "confidence": 0.72 },
+        { "id": "REL-PRJ-002-02", "type": "related_to", "from": "ENT-PRJ-002-EVT-01", "to": "ENT-PRJ-002-LOC-02", "evidence": ["PUB-PRJ-002-02", "PUB-PRJ-002-05", "MIL-PRJ-002-04"], "confidence": 0.7 },
+        { "id": "REL-PRJ-002-03", "type": "conflicts_with", "from": "PUB-PRJ-002-03", "to": "MIL-PRJ-002-02", "evidence": ["PUB-PRJ-002-03", "MIL-PRJ-002-02"], "confidence": 0.15, "notes": "Rumor of multiple events conflicts with unconfirmed/verification posture." }
+      ],
+      "conflicts": [
+        { "id": "CON-PRJ-002-01", "severity": "amber", "summary": "Forwarded rumor claims multiple citywide events without evidence", "items": ["PUB-PRJ-002-03", "PUB-PRJ-002-08"], "status": "Open" },
+        { "id": "CON-PRJ-002-02", "severity": "blue", "summary": "Exact incident details unconfirmed; avoid speculative summarization", "items": ["MIL-PRJ-002-02", "NEWS-PRJ-002-01"], "status": "Open" }
+      ],
+      "spotrepVersions": [
+        {
+          "id": "SPOTREP-PRJ-002-V1",
+          "generatedAt": "2025-12-17T09:40:00Z",
+          "timeWindow": "2025-12-17T06:00Z to 2025-12-17T09:40Z",
+          "sections": {
+            "SITUATION": "Public reports indicate an incident-related disturbance in City Zone AOI. Verification is ongoing with local authorities.",
+            "LOCATION": "Transit Hub / Market Road clusters (public-reported)",
+            "TIME_WINDOW": "06:00Z-09:40Z",
+            "FRIENDLY_FORCES": "LIAISON-CZ, HQ-URBAN, MED-LINK-1",
+            "OBSERVED_ACTIVITY": "Distress posts and emergency response presence reported. Details not confirmed by primary channels.",
+            "CIVILIAN_SIGNALS": "Verified assistance request near Market Road (verified). Multiple posts about crowd movement near Transit Hub (mixed confidence).",
+            "CONFLICTS_UNCERTAINTIES": "Forwarded rumor content present; treat as suspicious.",
+            "CONFIDENCE_SUMMARY": "Overall confidence: Medium. Verified public: Medium-High; rumors: Low.",
+            "SOURCES": ["MIL-PRJ-002-02", "MIL-PRJ-002-03", "MIL-PRJ-002-04", "PUB-PRJ-002-02", "NEWS-PRJ-002-01", "PUB-PRJ-002-03"]
+          }
+        }
+      ],
+      "chat": {
+        "suggestedPrompts": ["Summarize verified distress signals only.", "What are the main location clusters?", "List suspicious/rumor items."],
+        "qaPairs": [
+          {
+            "q": "Summarize verified distress signals only.",
+            "a": "One verified assistance request reported an injured person near Market Road; emergency services active near Transit Hub per verified reporter and local news. See [PUB-PRJ-002-02], [PUB-PRJ-002-04], [NEWS-PRJ-002-02].",
+            "citations": ["PUB-PRJ-002-02", "PUB-PRJ-002-04", "NEWS-PRJ-002-02"]
+          }
+        ]
+      },
+      "realtimeQueue": {
+        "enabled": true,
+        "intervalSeconds": 10,
+        "toastTemplate": "2 new public updates ingested",
+        "pendingPublicItems": [
+          {
+            "id": "PUB-PRJ-002-RT-01",
+            "sourceType": "social",
+            "platform": "x",
+            "authorType": "unknown_user",
+            "postedAt": "2025-12-17T14:05:00Z",
+            "claimedLocationText": "Transit Hub",
+            "text": "Traffic opening slowly. Still police presence.",
+            "media": [],
+            "rawUrl": "https://example.com/pub-002-rt-01"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PRJ-003",
+      "name": "Flash Flood Relief - Valley Region",
+      "type": "disaster_relief",
+      "region": "Valley Region AOI",
+      "status": "Active",
+      "createdBy": "Demo Analyst",
+      "createdAt": "2025-12-15T18:20:00Z",
+      "timeWindow": {
+        "start": "2025-12-15T12:00:00Z",
+        "end": "2025-12-18T12:00:00Z"
+      },
+      "tags": ["aoi:valley", "incident:disaster", "mode:relief"],
+      "ingestionConfig": {
+        "keywords": ["flood", "stranded", "bridge", "help", "shelter"],
+        "locationHint": "Valley Region",
+        "radiusKm": 30,
+        "sources": { "social": true, "news": true, "alerts": true }
+      },
+      "militaryReports": [
+        {
+          "id": "MIL-PRJ-003-01",
+          "sourceType": "military",
+          "unit": "RELIEF-TEAM-1",
+          "channel": "field_note",
+          "reportedAt": "2025-12-15T19:10:00Z",
+          "location": { "name": "Valley Staging", "lat": 30.32, "lon": 78.04, "grid": "VR-STG" },
+          "text": "19:10Z. Relief team deployed to Valley Region. Initial objective: locate stranded civilians and assess access routes.",
+          "confidence": 0.96
+        },
+        {
+          "id": "MIL-PRJ-003-02",
+          "sourceType": "military",
+          "unit": "RELIEF-TEAM-1",
+          "channel": "patrol_log",
+          "reportedAt": "2025-12-15T22:30:00Z",
+          "location": { "name": "Bridge Point A", "lat": 30.34, "lon": 78.02, "grid": "VR-01" },
+          "text": "22:30Z. Bridge Point A access partially blocked. Water level high. Alternative route scouting initiated.",
+          "confidence": 0.93
+        },
+        {
+          "id": "MIL-PRJ-003-03",
+          "sourceType": "military",
+          "unit": "HQ-RELIEF",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-16T02:00:00Z",
+          "location": { "name": "HQ Relief", "lat": 30.31, "lon": 78.05, "grid": "VR-HQ" },
+          "text": "02:00Z. Prioritize verified stranded-location reports for rescue routing. Maintain source trace and confidence.",
+          "confidence": 0.97
+        },
+        {
+          "id": "MIL-PRJ-003-04",
+          "sourceType": "military",
+          "unit": "RELIEF-TEAM-2",
+          "channel": "field_note",
+          "reportedAt": "2025-12-16T06:50:00Z",
+          "location": { "name": "Village Cluster B", "lat": 30.36, "lon": 78.01, "grid": "VR-02" },
+          "text": "06:50Z. Two households assisted. Shelter coordination initiated with local administration.",
+          "confidence": 0.9
+        },
+        {
+          "id": "MIL-PRJ-003-05",
+          "sourceType": "military",
+          "unit": "ENGINEER-REL-1",
+          "channel": "field_note",
+          "reportedAt": "2025-12-16T09:30:00Z",
+          "location": { "name": "Road Cut C", "lat": 30.33, "lon": 78.03, "grid": "VR-03" },
+          "text": "09:30Z. Road Cut C has debris; clearance ETA unknown. Recommend using Route D for immediate access (if safe).",
+          "confidence": 0.89
+        },
+        {
+          "id": "MIL-PRJ-003-06",
+          "sourceType": "military",
+          "unit": "HQ-RELIEF",
+          "channel": "sitrep_snippet",
+          "reportedAt": "2025-12-17T03:10:00Z",
+          "location": { "name": "HQ Relief", "lat": 30.31, "lon": 78.05, "grid": "VR-HQ" },
+          "text": "03:10Z. Continue consolidation of civilian distress signals with geolocation clustering. Flag duplicates and low-quality rumors.",
+          "confidence": 0.98
+        }
+      ],
+      "publicItems": [
+        {
+          "id": "PUB-PRJ-003-01",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-15T20:05:00Z",
+          "claimedLocationText": "near Bridge Point A",
+          "text": "We are stranded near the bridge, water rising. Need help.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-01"
+        },
+        {
+          "id": "PUB-PRJ-003-02",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-15T20:20:00Z",
+          "claimedLocationText": "Village Cluster B",
+          "text": "Elderly need evacuation in Village Cluster B. Phone network weak.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-02"
+        },
+        {
+          "id": "NEWS-PRJ-003-01",
+          "sourceType": "news",
+          "publisherType": "major_news",
+          "postedAt": "2025-12-15T21:00:00Z",
+          "headline": "Flash flood in valley region; rescue teams deployed",
+          "text": "Flash flood affected parts of the valley region. Rescue teams and local administration coordinating relief.",
+          "rawUrl": "https://example.com/news-003-01"
+        },
+        {
+          "id": "PUB-PRJ-003-03",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-15T22:10:00Z",
+          "claimedLocationText": "unknown",
+          "text": "Forwarded: entire valley underwater (no location/time).",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-03"
+        },
+        {
+          "id": "PUB-PRJ-003-04",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "verified_reporter",
+          "postedAt": "2025-12-16T02:20:00Z",
+          "claimedLocationText": "Valley Region",
+          "text": "Relief operations ongoing. Officials request exact location and contact for assistance.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-04"
+        },
+        {
+          "id": "NEWS-PRJ-003-02",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-16T05:00:00Z",
+          "headline": "Bridge access limited; residents advised to move to higher ground",
+          "text": "Bridge access is limited in some pockets. Residents advised to move to higher ground and follow official guidance.",
+          "rawUrl": "https://example.com/news-003-02"
+        },
+        {
+          "id": "PUB-PRJ-003-05",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-16T06:10:00Z",
+          "claimedLocationText": "Road Cut C",
+          "text": "Road is blocked by stones and mud at Road Cut C. Vehicles stuck.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-05"
+        },
+        {
+          "id": "PUB-PRJ-003-06",
+          "sourceType": "social",
+          "platform": "instagram",
+          "authorType": "known_user",
+          "postedAt": "2025-12-16T07:05:00Z",
+          "claimedLocationText": "Village Cluster B",
+          "text": "Rescue team visited our area. Need more food and blankets.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-06"
+        },
+        {
+          "id": "NEWS-PRJ-003-03",
+          "sourceType": "news",
+          "publisherType": "major_news",
+          "postedAt": "2025-12-16T11:30:00Z",
+          "headline": "Relief camps set up; helplines active",
+          "text": "Relief camps have been set up and helplines are active for assistance requests.",
+          "rawUrl": "https://example.com/news-003-03"
+        },
+        {
+          "id": "PUB-PRJ-003-07",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "unknown_user",
+          "postedAt": "2025-12-17T00:40:00Z",
+          "claimedLocationText": "Bridge Point A",
+          "text": "Water level lower now, but bridge still risky. Please be careful.",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-07"
+        },
+        {
+          "id": "PUB-PRJ-003-08",
+          "sourceType": "social",
+          "platform": "x",
+          "authorType": "anonymous",
+          "postedAt": "2025-12-17T02:05:00Z",
+          "claimedLocationText": "unknown",
+          "text": "Old images circulating again (no timestamp).",
+          "media": [],
+          "rawUrl": "https://example.com/pub-003-08"
+        },
+        {
+          "id": "NEWS-PRJ-003-04",
+          "sourceType": "news",
+          "publisherType": "local_news",
+          "postedAt": "2025-12-17T06:30:00Z",
+          "headline": "Road clearance ongoing in debris-hit stretches",
+          "text": "Road clearance is ongoing in debris-hit stretches; officials advised minimizing travel in affected routes.",
+          "rawUrl": "https://example.com/news-003-04"
+        }
+      ],
+      "verificationResults": [
+        { "itemId": "PUB-PRJ-003-01", "relevance": 0.9, "sourceReliability": 0.2, "geoConsistency": 0.7, "crossConfirmCount": 2, "finalConfidence": 0.66, "label": "Verified", "reasons": ["Specific help request", "Location matches AOI", "Aligned with bridge-access report"] },
+        { "itemId": "PUB-PRJ-003-02", "relevance": 0.88, "sourceReliability": 0.35, "geoConsistency": 0.75, "crossConfirmCount": 2, "finalConfidence": 0.72, "label": "Verified", "reasons": ["Specific vulnerable-group request", "Geo-consistent cluster", "Corroborated by relief action later"] },
+        { "itemId": "NEWS-PRJ-003-01", "relevance": 0.7, "sourceReliability": 0.7, "geoConsistency": 0.65, "crossConfirmCount": 1, "finalConfidence": 0.72, "label": "Verified", "reasons": ["Major news", "General situation statement"] },
+        { "itemId": "PUB-PRJ-003-03", "relevance": 0.3, "sourceReliability": 0.1, "geoConsistency": 0.1, "crossConfirmCount": 0, "finalConfidence": 0.06, "label": "Suspicious", "reasons": ["Forwarded exaggeration", "No location/time", "No corroboration"] },
+        { "itemId": "PUB-PRJ-003-04", "relevance": 0.6, "sourceReliability": 0.5, "geoConsistency": 0.6, "crossConfirmCount": 1, "finalConfidence": 0.68, "label": "Verified", "reasons": ["Verified reporter", "Guidance style", "Aligned with HQ posture"] },
+        { "itemId": "NEWS-PRJ-003-02", "relevance": 0.75, "sourceReliability": 0.55, "geoConsistency": 0.7, "crossConfirmCount": 1, "finalConfidence": 0.7, "label": "Verified", "reasons": ["Local news", "Operationally useful guidance"] },
+        { "itemId": "PUB-PRJ-003-05", "relevance": 0.8, "sourceReliability": 0.2, "geoConsistency": 0.7, "crossConfirmCount": 2, "finalConfidence": 0.62, "label": "Verified", "reasons": ["Matches engineer note on debris", "Repeated by others"] },
+        { "itemId": "PUB-PRJ-003-06", "relevance": 0.65, "sourceReliability": 0.35, "geoConsistency": 0.75, "crossConfirmCount": 2, "finalConfidence": 0.66, "label": "Unverified", "reasons": ["Post-relief status update", "Useful but not confirmatory"] },
+        { "itemId": "NEWS-PRJ-003-03", "relevance": 0.6, "sourceReliability": 0.7, "geoConsistency": 0.6, "crossConfirmCount": 1, "finalConfidence": 0.66, "label": "Verified", "reasons": ["Major news", "General relief update"] },
+        { "itemId": "PUB-PRJ-003-07", "relevance": 0.55, "sourceReliability": 0.2, "geoConsistency": 0.7, "crossConfirmCount": 1, "finalConfidence": 0.52, "label": "Unverified", "reasons": ["Benign caution", "Needs confirmation"] },
+        { "itemId": "PUB-PRJ-003-08", "relevance": 0.25, "sourceReliability": 0.1, "geoConsistency": 0.1, "crossConfirmCount": 0, "finalConfidence": 0.05, "label": "Suspicious", "reasons": ["No timestamp", "Likely recycled content"] },
+        { "itemId": "NEWS-PRJ-003-04", "relevance": 0.7, "sourceReliability": 0.55, "geoConsistency": 0.65, "crossConfirmCount": 1, "finalConfidence": 0.66, "label": "Verified", "reasons": ["Local news", "Operationally useful road status"] }
+      ],
+      "entities": [
+        { "id": "ENT-PRJ-003-EVT-01", "type": "event", "name": "Flash flood impact", "timeStart": "2025-12-15T18:00:00Z", "timeEnd": "2025-12-16T12:00:00Z" },
+        { "id": "ENT-PRJ-003-EVT-02", "type": "event", "name": "Road debris blockage", "timeStart": "2025-12-16T06:10:00Z", "timeEnd": "2025-12-17T06:30:00Z" },
+        { "id": "ENT-PRJ-003-LOC-01", "type": "location", "name": "Bridge Point A", "lat": 30.34, "lon": 78.02 },
+        { "id": "ENT-PRJ-003-LOC-02", "type": "location", "name": "Village Cluster B", "lat": 30.36, "lon": 78.01 },
+        { "id": "ENT-PRJ-003-LOC-03", "type": "location", "name": "Road Cut C", "lat": 30.33, "lon": 78.03 },
+        { "id": "ENT-PRJ-003-UNIT-01", "type": "unit", "name": "RELIEF-TEAM-1" },
+        { "id": "ENT-PRJ-003-UNIT-02", "type": "unit", "name": "RELIEF-TEAM-2" },
+        { "id": "ENT-PRJ-003-UNIT-03", "type": "unit", "name": "HQ-RELIEF" }
+      ],
+      "relations": [
+        { "id": "REL-PRJ-003-01", "type": "occurred_at", "from": "ENT-PRJ-003-EVT-01", "to": "ENT-PRJ-003-LOC-01", "evidence": ["MIL-PRJ-003-02", "PUB-PRJ-003-01", "NEWS-PRJ-003-02"], "confidence": 0.78 },
+        { "id": "REL-PRJ-003-02", "type": "occurred_at", "from": "ENT-PRJ-003-EVT-01", "to": "ENT-PRJ-003-LOC-02", "evidence": ["MIL-PRJ-003-04", "PUB-PRJ-003-02"], "confidence": 0.74 },
+        { "id": "REL-PRJ-003-03", "type": "occurred_at", "from": "ENT-PRJ-003-EVT-02", "to": "ENT-PRJ-003-LOC-03", "evidence": ["MIL-PRJ-003-05", "PUB-PRJ-003-05", "NEWS-PRJ-003-04"], "confidence": 0.76 },
+        { "id": "REL-PRJ-003-04", "type": "conflicts_with", "from": "PUB-PRJ-003-03", "to": "NEWS-PRJ-003-01", "evidence": ["PUB-PRJ-003-03", "NEWS-PRJ-003-01"], "confidence": 0.1, "notes": "Forwarded exaggeration vs general, non-exaggerated reporting." }
+      ],
+      "conflicts": [
+        { "id": "CON-PRJ-003-01", "severity": "amber", "summary": "Forwarded exaggeration about valley-wide inundation; no corroboration", "items": ["PUB-PRJ-003-03"], "status": "Open" },
+        { "id": "CON-PRJ-003-02", "severity": "blue", "summary": "Some posts lack exact geo/time; require clustering + confirmation before inclusion", "items": ["PUB-PRJ-003-07", "PUB-PRJ-003-08"], "status": "Open" }
+      ],
+      "spotrepVersions": [
+        {
+          "id": "SPOTREP-PRJ-003-V1",
+          "generatedAt": "2025-12-16T02:30:00Z",
+          "timeWindow": "2025-12-15T12:00Z to 2025-12-16T02:30Z",
+          "sections": {
+            "SITUATION": "Flash flood impact reported in Valley Region. Relief teams deployed; initial access constraints noted near Bridge Point A.",
+            "LOCATION": "Bridge Point A, Valley Region AOI",
+            "TIME_WINDOW": "12:00Z-02:30Z",
+            "FRIENDLY_FORCES": "RELIEF-TEAM-1, HQ-RELIEF",
+            "OBSERVED_ACTIVITY": "Bridge access partially blocked; route scouting initiated.",
+            "CIVILIAN_SIGNALS": "Specific stranded request near bridge (verified). Elderly evacuation request in Village Cluster B (verified).",
+            "CONFLICTS_UNCERTAINTIES": "Forwarded exaggeration exists; ignore until corroborated.",
+            "CONFIDENCE_SUMMARY": "Overall confidence: Medium-High for verified signals; Low for rumor content.",
+            "SOURCES": ["MIL-PRJ-003-01", "MIL-PRJ-003-02", "MIL-PRJ-003-03", "PUB-PRJ-003-01", "PUB-PRJ-003-02", "PUB-PRJ-003-03", "NEWS-PRJ-003-01"]
+          }
+        }
+      ],
+      "chat": {
+        "suggestedPrompts": ["List verified stranded locations with sources.", "What routes are constrained and why?", "Show rumor items to exclude."],
+        "qaPairs": [
+          {
+            "q": "List verified stranded locations with sources.",
+            "a": "Verified distress signals include Bridge Point A (stranded request) and Village Cluster B (evacuation request). See [PUB-PRJ-003-01], [PUB-PRJ-003-02], supported by [MIL-PRJ-003-02] and [MIL-PRJ-003-04].",
+            "citations": ["PUB-PRJ-003-01", "PUB-PRJ-003-02", "MIL-PRJ-003-02", "MIL-PRJ-003-04"]
+          }
+        ]
+      },
+      "realtimeQueue": {
+        "enabled": true,
+        "intervalSeconds": 10,
+        "toastTemplate": "2 new public updates ingested",
+        "pendingPublicItems": [
+          {
+            "id": "PUB-PRJ-003-RT-01",
+            "sourceType": "social",
+            "platform": "x",
+            "authorType": "unknown_user",
+            "postedAt": "2025-12-17T08:05:00Z",
+            "claimedLocationText": "Village Cluster B",
+            "text": "Need water packets at the shelter. Supplies running low.",
+            "media": [],
+            "rawUrl": "https://example.com/pub-003-rt-01"
+          }
+        ]
+      }
+    }
+  ]
+}
